@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import axios from "axios";
+import "./Form.css";
 
 const schema = yup.object().shape({
   firstname: yup
@@ -142,7 +143,16 @@ export default function Form() {
         <h2>Users</h2>
         <pre>
           {users.map((user) => (
-            <div key={user.id}>{JSON.stringify(Object.values(user))}</div>
+            <div key={user.id}>
+              Name:{user.firstname} {user.lastname}
+              <br />
+              Email: {user.email}
+              <br />
+              Password: {user.password}
+              <br />
+              Terms of Service: {user.terms ? "Accepted" : "Not accepted"}
+              <br />
+            </div>
           ))}
         </pre>
       </div>
